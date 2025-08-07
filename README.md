@@ -1,1 +1,3 @@
-# github-snake
+### 🐍 Snake com minhas contribuições
+
+![snake gif](https://ruigabriel1.github.io/github-snake/dist/tech-snake.gif)
