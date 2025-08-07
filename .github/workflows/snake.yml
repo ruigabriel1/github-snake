@@ -9,17 +9,16 @@ jobs:
   generate:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
       - uses: Platane/snk@v3
         with:
           github_user_name: ruigabriel1
-
           outputs: |
             dist/github-snake.svg
             dist/github-snake-dark.svg?palette=github-dark
-            dist/ocean.gif?color_snake=orange&color_dots=#bfd6f6,#8dbdff,#64a1f4,#4b91f1,#3c7dd9
-
-      - name: Checkout repo
-        uses: actions/checkout@v4   # ← ESSA LINHA É ESSENCIAL
+            dist/tech-snake.gif?color_snake=#00fff7&color_dots=#0f2027,#2c5364,#00fff7,#ff00ea,#00ff85,#fffc00,#00fffc,#ff0066
 
       - name: Commit animation files
         uses: EndBug/add-and-commit@v9
