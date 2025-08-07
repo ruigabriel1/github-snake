@@ -12,6 +12,9 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v4
 
+      - name: Clean dist folder
+        run: rm -rf dist
+
       - uses: Platane/snk@v3
         with:
           github_user_name: ruigabriel1
