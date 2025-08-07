@@ -21,8 +21,7 @@ jobs:
           outputs: |
             dist/github-snake.svg
             dist/github-snake-dark.svg?palette=github-dark
-            dist/github-snake-white.svg?palette=github-light
-            dist/tech-snake.gif?color_snake=#00fff7,#ff00ea,#00ff85,#fffc00,#00fffc,#ff0066,#ff4e50,#1a2980&color_dots=#0f2027,#2c5364,#f7971e,#ffd200,#21d4fd,#b721ff,#fc466b,#3f5efb&animation_type=zigzag
+            dist/tech-snake.gif?color_snake=#00fff7&color_dots=#0f2027,#2c5364,#00fff7,#ff00ea,#00ff85,#fffc00,#00fffc,#ff0066
 
       - name: Commit animation files
         uses: EndBug/add-and-commit@v9
@@ -30,4 +29,4 @@ jobs:
           author_name: github-actions
           author_email: github-actions@github.com
           message: 'Generated snake animation'
-          add: 'dist/*
+          add: 'dist/*'
