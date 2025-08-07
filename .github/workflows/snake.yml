@@ -2,7 +2,7 @@ name: Generate Snake Animation
 
 on:
   schedule:
-    - cron: "0 0 * * *" # roda todo dia à meia-noite
+    - cron: "0 0 * * *"  # roda todos os dias à meia-noite
   workflow_dispatch:
 
 jobs:
@@ -16,7 +16,10 @@ jobs:
           outputs: |
             dist/github-snake.svg
             dist/github-snake-dark.svg?palette=github-dark
-            dist/tech-snake.gif?color_snake=#00ffea&color_dots=#0f0c29,#302b63,#24243e,#00ffea,#ff00cc,#fffc00,#00fffc,#ff0066
+            dist/ocean.gif?color_snake=orange&color_dots=#bfd6f6,#8dbdff,#64a1f4,#4b91f1,#3c7dd9
+
+      - name: Checkout repo
+        uses: actions/checkout@v4   # ← ESSA LINHA É ESSENCIAL
 
       - name: Commit animation files
         uses: EndBug/add-and-commit@v9
