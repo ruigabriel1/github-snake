@@ -2,7 +2,7 @@ name: Generate Snake Animation
 
 on:
   schedule:
-    - cron: "0 0 * * *"  # roda todos os dias à meia-noite
+    - cron: "0 0 * * *" # roda todos os dias à meia-noite
   workflow_dispatch:
 
 jobs:
@@ -18,6 +18,8 @@ jobs:
       - uses: Platane/snk@v3
         with:
           github_user_name: ruigabriel1
+          # Adicionamos a linha abaixo para acessar repositórios privados
+          github_token: ${{ secrets.SNAKE_TOKEN }}
           outputs: |
             dist/github-snake.svg
             dist/github-snake-dark.svg?palette=github-dark
