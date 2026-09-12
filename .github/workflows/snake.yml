@@ -5,6 +5,10 @@ on:
     - cron: "0 0 * * *" # roda todos os dias à meia-noite
   workflow_dispatch:
 
+# Garante que o GitHub Actions tenha permissão para fazer commits
+permissions:
+  contents: write
+
 jobs:
   generate:
     runs-on: ubuntu-latest
@@ -13,12 +17,14 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Clean dist folder
-        run: rm -rf dist
+        # Adicionei o || true para não quebrar a action caso a pasta ainda não exista
+        run: rm -rf dist || true 
 
-      - uses: Platane/snk@v3
+      - name: Generate snake files
+        uses: Platane/snk@v3
         with:
           github_user_name: ruigabriel1
-          # Adicionamos a linha abaixo para acessar repositórios privados
+          # Token atualizado que você gerou nas configurações do GitHub
           github_token: ${{ secrets.SNAKE_TOKEN }}
           outputs: |
             dist/github-snake.svg
